@@ -12,7 +12,7 @@ if os.path.isdir(DIR):
 
 import unittest
 import trytond.tests.test_tryton
-from trytond.tests.test_tryton import test_depends  # test_view
+from trytond.tests.test_tryton import test_depends, test_view
 
 
 class SaleDeliveryDateManualTestCase(unittest.TestCase):
@@ -22,6 +22,12 @@ class SaleDeliveryDateManualTestCase(unittest.TestCase):
 
     def setUp(self):
         trytond.tests.test_tryton.install_module('sale_delivery_date_manual')
+
+    def test0005views(self):
+        '''
+        Test views.
+        '''
+        test_view('sale_delivery_date_manual')
 
     def test0006depends(self):
         '''
